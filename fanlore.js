@@ -7,7 +7,12 @@ const contentDisposition = require("content-disposition");
 const { pipeline } = require("node:stream/promises");
 const path = require("path");
 
-const PSK = "phiehaenohyie8geithoo3waihaiv5iePah1feep8aighohPhai4yoo1co0Wo3Qu";
+if (!process.env.FANLORE_PSK)
+	throw new Error(
+		`PSK not defined in FANLORE_PSK env var. Refusing to run insecurely.`,
+	);
+
+const PSK = process.env.FANLORE_PSK;
 
 app.use(express.json());
 app.use(
