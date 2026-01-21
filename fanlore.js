@@ -58,6 +58,7 @@ function consumeOTP(otp, forAction) {
 }
 
 async function notify(text, tags = [], actions = []) {
+	if (!NTFY_ENABLED) return;
 	tags.push("fanlore");
 	let options = {
 		method: "POST",
