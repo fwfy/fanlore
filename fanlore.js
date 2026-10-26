@@ -82,7 +82,7 @@ async function downloadFicByURL(url) {
 		if (!id) throw new Error(`No valid fic ID found in submitted URL.`);
 		console.log(`Found ID ${id}, sending request!`);
 		notify(`Beginning download of fic ID ${id}...`, ["hourglass"]);
-		const dl = `https://archiveofourown.org/downloads/${id}/file.epub`;
+		const dl = `https://download.archiveofourown.org/downloads/${id}/file.epub`;
 		const file = await fetch(dl);
 		console.log(`Request finished.`);
 		const { parameters: cd } = contentDisposition.parse(
